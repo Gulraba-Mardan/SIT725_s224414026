@@ -1,0 +1,262 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f8f8;
+    color: #263238;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-size {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.brand-section {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-section i {
+    font-size: 32px;
+}
+
+.hero-section {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 121, 107, 0.96),
+            rgba(38, 166, 154, 0.90)
+        );
+    color: white;
+    padding: 75px 0;
+}
+
+.hero-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.18);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.hero-text h1 {
+    margin: 20px 0 15px;
+    font-size: 52px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.hero-text p {
+    max-width: 680px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-text .btn-large {
+    border-radius: 30px;
+    background-color: white !important;
+    color: #00796b;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.hero-text .btn-large i {
+    color: #00796b;
+}
+
+.hero-icon-column {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-icon-circle {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero-icon-circle i {
+    font-size: 125px;
+    color: white;
+}
+
+.books-section {
+    padding: 65px 0 75px;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    margin-bottom: 10px;
+    font-size: 38px;
+    font-weight: 700;
+    color: #263238;
+}
+
+.section-heading p {
+    margin-top: 0;
+    color: #607d8b;
+    font-size: 17px;
+}
+
+.book-card {
+    overflow: hidden;
+    border-radius: 14px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-7px);
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.book-card .card-image {
+    height: 320px;
+    background-color: #eceff1;
+}
+
+.book-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-card .card-content {
+    min-height: 145px;
+    padding: 22px;
+}
+
+.book-card .card-title {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.book-author {
+    margin-top: 12px;
+    color: #546e7a;
+    font-size: 16px;
+}
+
+.book-category {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 11px;
+    border-radius: 15px;
+    background-color: #e0f2f1;
+    color: #00796b;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card-reveal {
+    color: #263238;
+}
+
+.card-reveal .card-title {
+    font-weight: 600;
+}
+
+.card-reveal p {
+    margin-top: 25px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #455a64;
+}
+
+.loading-area {
+    padding: 50px 0;
+    color: #607d8b;
+}
+
+.page-footer {
+    margin-top: 0;
+}
+
+.footer-row {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon-area {
+    text-align: right;
+}
+
+.footer-icon-area i {
+    font-size: 70px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.error-message {
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffebee;
+    color: #c62828;
+    font-size: 17px;
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+
+    .hero-row {
+        display: block;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .hero-icon-column {
+        margin-top: 45px;
+    }
+
+    .hero-icon-circle {
+        width: 175px;
+        height: 175px;
+    }
+
+    .hero-icon-circle i {
+        font-size: 95px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .footer-row {
+        display: block;
+    }
+
+    .footer-icon-area {
+        margin-top: 15px;
+        text-align: left;
+    }
+}

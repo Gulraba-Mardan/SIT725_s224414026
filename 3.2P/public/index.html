@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book Explorer</title>
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="teal darken-2">
+        <div class="nav-wrapper navbar-size">
+
+            <a href="#"
+               class="brand-logo brand-section">
+
+                <i class="material-icons">auto_stories</i>
+
+                <span>Book Explorer</span>
+            </a>
+
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="#books-section">
+                        <i class="material-icons left">library_books</i>
+                        Books
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank"
+                       href="https://github.com/Gulraba-Mardan/SIT725_s224414026">
+
+                        <i class="material-icons left">code</i>
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- Hero section -->
+        <section class="hero-section">
+
+            <div class="container">
+
+                <div class="row hero-row">
+
+                    <div class="col s12 m7 hero-text">
+
+                        <span class="hero-label">
+                            SIT725 Task 3.2P
+                        </span>
+
+                        <h1>
+                            Discover your next great book
+                        </h1>
+
+                        <p class="flow-text">
+                            Explore a small collection of popular books,
+                            dynamically loaded from an Express REST endpoint.
+                        </p>
+
+                        <a href="#books-section"
+                           class="waves-effect waves-light btn-large teal darken-2">
+
+                            <i class="material-icons left">
+                                menu_book
+                            </i>
+
+                            Explore Books
+                        </a>
+
+                    </div>
+
+                    <div class="col s12 m5 center-align hero-icon-column">
+
+                        <div class="hero-icon-circle">
+                            <i class="material-icons">
+                                local_library
+                            </i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Books section -->
+        <section id="books-section"
+                 class="books-section">
+
+            <div class="container">
+
+                <div class="section-heading center-align">
+
+                    <h2>Featured Books</h2>
+
+                    <p>
+                        Select the three-dot icon on a card to read more.
+                    </p>
+
+                </div>
+
+                <!-- Cards are added dynamically by scripts.js -->
+                <div class="row"
+                     id="book-list">
+
+                    <div class="col s12 center-align loading-area">
+                        <div class="preloader-wrapper small active">
+
+                            <div class="spinner-layer spinner-teal-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p>Loading books...</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer teal darken-2">
+
+        <div class="container">
+
+            <div class="row footer-row">
+
+                <div class="col s12 m8">
+
+                    <h5 class="white-text">
+                        Book Explorer
+                    </h5>
+
+                    <p class="grey-text text-lighten-4">
+                        An Express and Materialize web application created
+                        for SIT725 Task 3.2P.
+                    </p>
+
+                </div>
+
+                <div class="col s12 m4 footer-icon-area">
+                    <i class="material-icons">
+                        auto_stories
+                    </i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+
+            <div class="container center-align">
+                © 2026 Book Explorer
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
