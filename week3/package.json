@@ -1,0 +1,15 @@
+{
+  "name": "week3",
+  "version": "1.0.0",
+  "description": "SIT725 Week 3 Practical",
+  "license": "MIT",
+  "author": "Gulraba-Mardan",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+  "start": "node server.js"
+},
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
