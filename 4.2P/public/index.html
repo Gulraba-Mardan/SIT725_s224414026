@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Movie Explorer</title>
+
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  >
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">Movie Explorer</a>
+
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="#add-movie">
+            <i class="material-icons left">add</i>
+            Add Movie
+          </a>
+        </li>
+
+        <li>
+          <a href="#movies">
+            <i class="material-icons left">movie</i>
+            Movies
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <div class="container center-align">
+      <h1>Discover Great Movies</h1>
+
+      <p class="hero-text">
+        Explore a collection of popular movies stored in MongoDB.
+      </p>
+
+      <a href="#movies" class="btn-large waves-effect waves-light">
+        Browse Movies
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section id="add-movie" class="container add-movie-section">
+      <div class="section-heading center-align">
+        <h3>Add a New Movie</h3>
+
+        <p>
+          Enter movie information and save it to the MongoDB database.
+        </p>
+      </div>
+
+      <div class="card-panel movie-form-panel">
+        <form id="movie-form">
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <input id="movie-title" type="text" required>
+              <label for="movie-title">Movie Title</label>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <input id="genre" type="text" required>
+              <label for="genre">Genre</label>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <input id="director" type="text" required>
+              <label for="director">Director</label>
+            </div>
+
+            <div class="input-field col s12 m3">
+              <input
+                id="release-year"
+                type="number"
+                min="1888"
+                max="2100"
+                required
+              >
+              <label for="release-year">Release Year</label>
+            </div>
+
+            <div class="input-field col s12 m3">
+              <input
+                id="rating"
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                required
+              >
+              <label for="rating">Rating</label>
+            </div>
+          </div>
+
+          <div class="center-align">
+            <button
+              class="btn-large waves-effect waves-light"
+              type="submit"
+            >
+              Add Movie
+              <i class="material-icons right">add</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="movies" class="container movie-section">
+      <div class="section-heading center-align">
+        <h3>Movie Collection</h3>
+
+        <p>
+          Movie information is loaded from the Express server and MongoDB database.
+        </p>
+      </div>
+
+      <div class="row" id="movie-list">
+        <!-- Movie cards will be inserted by scripts.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container center-align">
+      <p>SIT725 4.2P Movie Explorer</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+  </script>
+
+  <script src="js/scripts.js"></script>
+
+</body>
+</html>
