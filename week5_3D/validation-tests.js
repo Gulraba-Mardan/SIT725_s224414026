@@ -502,6 +502,235 @@ async function run() {
     tags: ["CREATE_FAIL", "LENGTH"]
   });
 
+    // ---- T26 Missing required ID ----
+  await test({
+    id: "T26",
+    name: "Missing required ID",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const book = makeValidBook(`b${Date.now()+20}`);
+      delete book.id;
+      return book;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // ---- T27 Author too long ----
+  await test({
+    id: "T27",
+    name: "Author exceeds maximum length",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: {
+      ...makeValidBook(`b${Date.now()+21}`),
+      author: "A".repeat(61)
+    },
+    tags: ["CREATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T28 Missing required year ----
+  await test({
+    id: "T28",
+    name: "Missing required year",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const book = makeValidBook(`b${Date.now()+22}`);
+      delete book.year;
+      return book;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // ---- T29 Missing required genre ----
+  await test({
+    id: "T29",
+    name: "Missing required genre",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const book = makeValidBook(`b${Date.now()+23}`);
+      delete book.genre;
+      return book;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // ---- T30 Genre too long ----
+  await test({
+    id: "T30",
+    name: "Genre exceeds maximum length",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: {
+      ...makeValidBook(`b${Date.now()+24}`),
+      genre: "G".repeat(31)
+    },
+    tags: ["CREATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T31 Missing required summary ----
+  await test({
+    id: "T31",
+    name: "Missing required summary",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const book = makeValidBook(`b${Date.now()+25}`);
+      delete book.summary;
+      return book;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // ---- T32 Summary too long ----
+  await test({
+    id: "T32",
+    name: "Summary exceeds maximum length",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: {
+      ...makeValidBook(`b${Date.now()+26}`),
+      summary: "S".repeat(1001)
+    },
+    tags: ["CREATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T33 Missing required price ----
+  await test({
+    id: "T33",
+    name: "Missing required price",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const book = makeValidBook(`b${Date.now()+27}`);
+      delete book.price;
+      return book;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+    // ---- T34 UPDATE author too long ----
+  await test({
+    id: "T34",
+    name: "Update author exceeds maximum length",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      author: "A".repeat(61)
+    },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T35 UPDATE year below minimum ----
+  await test({
+    id: "T35",
+    name: "Update year below minimum",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      year: 999
+    },
+    tags: ["UPDATE_FAIL", "BOUNDARY"]
+  });
+
+  // ---- T36 UPDATE genre too short ----
+  await test({
+    id: "T36",
+    name: "Update genre below minimum length",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      genre: "SF"
+    },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T37 UPDATE genre too long ----
+  await test({
+    id: "T37",
+    name: "Update genre exceeds maximum length",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      genre: "G".repeat(31)
+    },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T38 UPDATE summary too short ----
+  await test({
+    id: "T38",
+    name: "Update summary below minimum length",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      summary: "Too short"
+    },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T39 UPDATE summary too long ----
+  await test({
+    id: "T39",
+    name: "Update summary exceeds maximum length",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      summary: "S".repeat(1001)
+    },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // ---- T40 UPDATE invalid price type ----
+  await test({
+    id: "T40",
+    name: "Update invalid price type",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      price: "invalid-price"
+    },
+    tags: ["UPDATE_FAIL", "TYPE"]
+  });
+
+  // ---- T41 UPDATE negative price ----
+  await test({
+    id: "T41",
+    name: "Update negative price",
+    method: "PUT",
+    path: updatePath(uniqueId),
+    expected: 400,
+    body: {
+      ...makeValidUpdate(),
+      price: "-5.00"
+    },
+    tags: ["UPDATE_FAIL", "BOUNDARY"]
+  });
+
   const pass = logSummary();
   logCoverage();
 
