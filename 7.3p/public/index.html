@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Study Room</title>
+</head>
+
+<body>
+  <h1>Live Study Room</h1>
+
+  <p>Share what you are currently studying with other connected users.</p>
+
+  <input
+    type="text"
+    id="name"
+    placeholder="Enter your name"
+  >
+
+  <input
+    type="text"
+    id="message"
+    placeholder="What are you studying?"
+  >
+
+  <button id="sendButton">Send Update</button>
+
+  <h2>Live Updates</h2>
+
+  <ul id="updates">
+    <li>Waiting for study updates...</li>
+  </ul>
+
+  <!-- Load Socket.IO before scripts.js -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
